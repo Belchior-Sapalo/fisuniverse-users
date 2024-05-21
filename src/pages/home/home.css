@@ -1,0 +1,54 @@
+.sec{
+    min-height: 80vh;
+}
+
+.sec-title{
+    color: var(--color-3);
+    text-decoration: underline;
+	margin-bottom: 15px;
+}
+
+#home-section{
+    padding: 70px;
+}
+
+#home-content-container{
+    padding-top: 20px;
+}
+
+#home-text-form-search{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#home-img{
+    
+}
+
+#about-content-container{
+    
+}
+
+#about-section{
+
+}
+
+#about-content{
+    
+}
+
+.about-content-div{
+	margin-bottom: 30px;
+}
+
+#post-section{
+	
+}
+
+@media screen and (max-width: 718px){
+	
+}
+

@@ -1,0 +1,57 @@
+#footer-container{
+    border-top: var(--color-1);
+    width: 100%;
+    overflow-x: hidden;
+    margin: auto;
+    padding: 0px 30px;
+}
+
+.someArea{
+}
+
+.areaTitle{
+    color: var(--color-6);
+    margin: 8px;
+    color: rgb(177, 177, 177);
+}
+
+#footer-link-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-link{
+    text-decoration: none;
+    color: var(--color-6);
+    color: rgb(177, 177, 177);
+}
+
+#form-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+#form-contact > textarea{
+    height: 60px;
+}
+
+.form-contact-input{
+    outline: none;
+    resize: none;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+#redes-area > h6{
+    color: rgb(177, 177, 177);
+}
+
+#redes-list{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
