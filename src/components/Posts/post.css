@@ -1,5 +1,5 @@
 #posts-container{
-
+    
 }
 
 p{
@@ -7,8 +7,10 @@ p{
 }
 
 .post{
+    padding: 10px;
     margin-bottom: 20px;
     border: 1px solid rgba(0, 0, 0, 0.026);
+    border-radius: 8px;
 }
 
 .post-title{
@@ -61,6 +63,7 @@ p{
 
 .ver-coments{
     width: 60px;
+    margin-top: 8px;
     border: 1px solid whitesmoke;
 }
 

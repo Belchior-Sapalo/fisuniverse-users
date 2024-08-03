@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../home/home.css'
 import admImg from '../../assets/images/about-img.png'
-import Post from "../../components/Posts/post";
+import Posts from "../../components/Posts/post";
 
 export default function Home(){
 	return(
@@ -42,8 +42,7 @@ export default function Home(){
 			</section>
 			<section id="post-section" className="sec container">
 				<h4 className="text-center sec-title">Publicações</h4>
-
-				<Post/>
+				<Posts/>
 			</section>
 		</main>
 	)

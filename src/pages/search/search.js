@@ -2,8 +2,9 @@ import React, {useEffect, useState} from "react";
 import {useSearchParams, useNavigate} from 'react-router-dom'
 import '../search/search.css'
 import {FaThumbsUp, FaMessage} from 'react-icons/fa6'
-import Navbar from "../../components/navbar/navbar";
 import ComentForm from "../../components/postComentForm/comentForm";
+import { formatDistanceToNow } from "date-fns"
+import { ptBR } from 'date-fns/locale';
 
 export default function Search(){
     const [searchParams] = useSearchParams()
@@ -11,13 +12,14 @@ export default function Search(){
     const [verComents, setVerComents] = useState(false)
     const query = searchParams.get('q')
     const navigate = useNavigate()
+    const API_URL = "http://localhost:8000"
 
     function verPost(postId){
 		navigate(`/post?q=${postId}`)
 	}
 
     useEffect(()=>{
-        const URL = `http://localhost:8000/procurarPost/${query}`
+        const URL = `${API_URL}/procurarPost/${query}`
         fetch(URL)
         .then((res)=>res.json())
         .then((json)=>setResults(json))
@@ -26,6 +28,11 @@ export default function Search(){
         })
     },[query])
     
+    function formatarData(data){
+		const createdAtFormated = formatDistanceToNow(data, { addSuffix: true, locale: ptBR });
+		return createdAtFormated;
+	}
+
     return(
         <section id="search-section" className="">
             <h1 className="result-text text-center">Resultados para: {query}</h1>
@@ -44,7 +51,7 @@ export default function Search(){
                                     {result.autor}
                                 </p>
                                 <p className="result-data-create">
-                                    {result.createdAt}
+                                    {formatarData(result.createdAt)}
                                 </p>
                                 <div className="result-content">
                                     {result.content}
@@ -52,18 +59,6 @@ export default function Search(){
                                 <button className="btn ver-coments"  onClick={()=>verPost(result.id)}><FaMessage/></button>
                                 <div className="result-coments" style={{display: verComents? 'inline': 'none'}}>
                                 <ComentForm postId={result.id}/>	
-                                    {
-                                        result.coments.length == 0? <p>Sem comentários</p>: result.coments.map(coment => {
-                                        return(
-                                            <div className="coment">
-                                                <p className="coment-autor">{coment.autorName}</p>
-                                                <p className="coment-email">{coment.autorEmail}</p>
-                                                <p className="coment-data-create">{coment.createdAt}</p>
-                                                <p className="coment-content">{coment.content}</p>
-                                            </div>
-                                        )
-                                        })
-                                    }
                                 </div>
                             </div>
                         )

@@ -1,57 +1,44 @@
 #footer-container{
-    border-top: var(--color-1);
-    width: 100%;
-    overflow-x: hidden;
-    margin: auto;
-    padding: 0px 30px;
+    padding: 20px;
 }
 
-.someArea{
-}
-
-.areaTitle{
-    color: var(--color-6);
-    margin: 8px;
-    color: rgb(177, 177, 177);
-}
-
-#footer-link-list{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-}
-
-.footer-link{
-    text-decoration: none;
-    color: var(--color-6);
-    color: rgb(177, 177, 177);
-}
-
-#form-contact{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 10px;
-}
-
-#form-contact > textarea{
-    height: 60px;
-}
-
-.form-contact-input{
-    outline: none;
-    resize: none;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-}
-
-#redes-area > h6{
-    color: rgb(177, 177, 177);
-}
-
-#redes-list{
+#content{
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contact-area{ 
+    margin-bottom: 2px;
+}
+
+.external-link{
+    margin: 0px 8px;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+}
+
+.icon{
+    color: rgb(200, 200, 200);
+    font-size: 30px;
+}
+
+.navigate-area{
+    color: rgb(200, 200, 200);
+    display: flex;
     gap: 8px;
+}
+
+.internal-link{
+    color: rgb(200, 200, 200);
+    text-decoration: none;
+}
+
+.info-area p{
+    color: rgb(200, 200, 200);
+    font-size: 12px;
+    font-family: var(--thin-font);
 }

@@ -53,7 +53,6 @@ export default function Navbar(){
 							</li>
 							<li className="nav-list-item"><Link className="nav-bar-link" onClick={()=>CloseMenu()} to='/'>Início</Link></li>
 							<li className="nav-list-item"><Link className="nav-bar-link" onClick={()=>CloseMenu()} to='/anexos'>Anexos</Link></li>
-							<li className="nav-list-item"><Link className="nav-bar-link" onClick={()=>CloseMenu()}>Artigos</Link></li>
 							<li id="searchBar-li">
 								<SearchBar/>
 							</li>

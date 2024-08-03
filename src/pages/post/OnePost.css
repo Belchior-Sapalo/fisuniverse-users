@@ -1,14 +1,19 @@
 #ver-post-section{
-    padding-top: 70px;
+    padding-top: 80px;
 }
 
 #back-btn-container{
-    margin: 10px 0px;
+    margin: 10px 0px 0px 0px;
+    width: 80px;
 }
 
 #back-btn{
     background:none;
     border: none;
+}
+
+.post{
+    margin-top: 80px;
 }
 
 .coment-header{
