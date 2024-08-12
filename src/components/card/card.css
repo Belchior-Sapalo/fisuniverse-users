@@ -1,18 +1,91 @@
 #card-container{
     display: flex;
+    margin-bottom: 8px;
+    background-color: rgba(211, 211, 211, 0.43);
+    padding: 0 10px 0px 0px;
+    height: max-content;
+}
+
+#post-infor-container {
+    display: flex;
+    gap: 8px;
+}
+
+#text-container{
+    display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    justify-content: space-around;
+    padding: 10px 6px;
+    margin: 0;
+    width: 100%;
 }
 
-#card-container > p, h6{
-    width: 80%;
+#text-about-book{
+    
 }
 
-.image{
-    margin: 10px 0px;
-    height: 400px;
+#post-cover-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
 }
 
-.book-title{
+#post-cover-container img{
+    
+}
+
+#post-infor-container{
+    margin-bottom: 8px;
+}
+
+#post-infor-container h6{
+    margin: 0;
     font-size: 20px;
+    text-transform: capitalize;
+}
+
+#post-more-infor-container{
+    display: flex;
+    gap: 8px;
+}
+
+#post-cover-container img{
+}
+
+#post-desc-container{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#post-desc-container p{
+   
+}
+
+#options-container{
+   justify-content: flex-end;
+   gap: 8px;
+}
+
+@media screen and (max-width: 800px){
+    #post-infor-container {
+        display: flex;
+    }
+
+    #post-infor-container h6{
+        font-size: 14px;
+    }
+    
+    #post-more-infor-container h6{
+        font-size: 10px;
+    }
+    
+    #post-desc-container{
+        font-size: 10px;
+    }
+    
+    #options-container{
+        display: flex;
+        justify-content: end;
+    }
 }

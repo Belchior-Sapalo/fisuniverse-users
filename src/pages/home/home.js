@@ -12,7 +12,7 @@ export default function Home(){
 						<h1>Vicelino Chilua</h1>
 					</div>
 					<div id="home-img" className="col-sm-12 col-md-12 col-lg-6">
-						<img src={admImg} className="img-fluid"></img>
+						<img src="http://localhost:8000/adm/get_profile_picture/4" className="img-fluid" alt="fofo indisponível"></img>
 					</div>
 				</div>
 			</section>
