@@ -9,6 +9,7 @@ import Search from './pages/search/search';
 import './index.css';
 import OnePost from './pages/post/OnePost';
 import Book from './pages/book/OneBook';
+import SearchBook from './pages/searchBook/searchBook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +19,8 @@ root.render(
         <Route element={<App/>}>
           <Route path="/" element={<Home/>}/>
           <Route path="/anexos" element={<Anexos/>}/>
-          <Route path="/search" element={<Search/>}/>
+          <Route path="/posts/search" element={<Search/>}/>
+          <Route path="/livros/searchBook" element={<SearchBook/>}/>
           <Route path="/post" element={<OnePost/>}/>
           <Route path="/book" element={<Book/>}/>
         </Route>

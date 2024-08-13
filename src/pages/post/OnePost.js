@@ -12,7 +12,7 @@ export default function(){
     const [post, setPost] = useState({})
     const [coments, setComents] = useState([])
     const q = searchParams.get('q')
-    const API_URL = "http://localhost:8000"
+    const API_URL = "http://192.168.56.1:8000"
 
     function voltar(){
         navigate(-1)

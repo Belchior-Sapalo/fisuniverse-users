@@ -26,14 +26,14 @@ export default function Anexos(){
 	}, [])
 
 	return(
-		<section id="anexos-section" className="container">
-			  <div id="posts-container" className="row">
+		<section id="anexos-section">
+			  <div id="posts-container">
 				{
 					havebooksInDatabase ? books.map(book => {
 						return(
-							<Card title={book.title} autor={book.autorName} editora={book.editora} ano={book.ano} img={book.cover} description={book.description}/>
+							<Card title={book.title} autor={book.autorName} editora={book.editora} ano={book.ano} img={book.cover} description={book.description} link={book.link}/>
 						)
-					}) : <h1>Sem books</h1> 
+					}) : <h4 className="text-center">Sem livros publicados</h4> 
 				}
 			</div>
 		</section>

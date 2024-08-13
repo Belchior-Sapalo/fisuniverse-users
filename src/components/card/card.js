@@ -1,12 +1,14 @@
 import "../card/card.css"
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
+import {Link} from "react-router-dom"
 
-export default function Card({title, autor, ano, editora, description, img}) {
-
+export default function Card({title, autor, ano, editora, description, img, link}) {
+    const navigate = useNavigate()
   return (
-    <div id="card-container" className="col-12">
+    <div id="card-container">
         <div id="post-cover-container">
-            <img className="img-fluid" src={img} style={{ maxWidth: '150px' }} alt={title}/>
+            <img className="" src={img} alt={title}/>
         </div>
         <div id="text-container">
             <div id="text-about-book">
@@ -24,7 +26,8 @@ export default function Card({title, autor, ano, editora, description, img}) {
             </div>
             
             <div id="options-container" >
-                <button style={{padding: "2px 4px"}} className="btn btn-success">Baixar</button>
+                <Link target="_blank" to={link} style={{padding: "2px 4px"}} className="btn btn-success">Baixar</Link>
+                
             </div>
         </div>
     </div>

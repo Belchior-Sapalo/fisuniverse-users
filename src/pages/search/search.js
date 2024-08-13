@@ -34,7 +34,7 @@ export default function Search(){
 	}
 
     return(
-        <section id="search-section" className="">
+        <section id="search-section">
             <h1 className="result-text text-center">Resultados para: {query}</h1>
 
             <div id="results-container" className="container">
@@ -64,7 +64,7 @@ export default function Search(){
                         )
                     }else{
                         return(
-                            <h4>{result.msg}</h4>
+                            <h4 className="text-center">{result.msg}</h4>
                         )
                     }
 				})

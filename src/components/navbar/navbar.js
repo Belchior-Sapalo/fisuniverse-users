@@ -1,26 +1,34 @@
 import React from "react";
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate, useLocation} from 'react-router-dom'
 import {useState} from 'react'
 import {FaBars, FaSearch} from 'react-icons/fa'
 import { MdClose} from 'react-icons/md'
 import '../navbar/navbar.css'
 
-export default function Navbar(){
+export default function Navbar({SearchBar}){
 	const [visible, setVisible] = useState(false)
 	const navigate = useNavigate()
+	const location = useLocation()
 
 	function SearchBar(){
 		const [searchValue, setSearchValue] = useState('')
 		const navigate = useNavigate()
-		function pesquisar(e){
+		function handlerSearch(e){
 			e.preventDefault()
-			if(!searchValue) return
-			navigate(`/search?q=${searchValue}`)
-			setSearchValue("")
-			setVisible(false)
+			if(location.pathname.includes('/anexos') || location.pathname.includes('/livros')){
+				if(!searchValue) return
+				navigate(`/livros/searchBook?q=${searchValue}`)
+				setSearchValue("")
+				setVisible(false)
+			}else if(location.pathname.includes('/') || location.pathname.includes('/posts')){
+				if(!searchValue) return
+				navigate(`/posts/search?q=${searchValue}`)
+				setSearchValue("")
+				setVisible(false)
+			}
 		}
 		return(
-			<form onSubmit={(e)=>pesquisar(e)} id="search-form">
+			<form onSubmit={(e)=>handlerSearch(e)} id="search-form">
 				<input 
 					placeholder="Pesquisar por um conteúdo" 
 					id="search-form-input"

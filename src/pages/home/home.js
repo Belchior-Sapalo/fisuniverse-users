@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import '../home/home.css'
-import admImg from '../../assets/images/about-img.png'
 import Posts from "../../components/Posts/post";
 
 export default function Home(){
@@ -12,7 +11,7 @@ export default function Home(){
 						<h1>Vicelino Chilua</h1>
 					</div>
 					<div id="home-img" className="col-sm-12 col-md-12 col-lg-6">
-						<img src="http://localhost:8000/adm/get_profile_picture/4" className="img-fluid" alt="fofo indisponível"></img>
+						<img src="http://192.168.56.1:8000/adm/get_profile_picture/5" className="img-fluid" alt="fofo indisponível"></img>
 					</div>
 				</div>
 			</section>

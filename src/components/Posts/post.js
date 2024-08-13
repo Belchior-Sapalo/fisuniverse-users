@@ -16,7 +16,7 @@ export default function Posts(){
 	}
 
 	useEffect(()=>{
-		const URL = 'http://localhost:8000/verPosts'
+		const URL = 'http://192.168.56.1:8000/verPosts'
 		fetch(URL)
 		.then((res)=>res.json())
 		.then((json)=>{
