@@ -3,6 +3,12 @@
     min-height: 100vh;
 }
 
+#search-result-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .result-text{
     color: var(--color-3);
     margin: 20px 0px;
@@ -27,6 +33,22 @@ p{
     font-size: 25px;
     font-family: var(--bold-font);
     margin: 0;
+}
+
+.result-title-and-back-btn{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+}
+
+.result-title-and-back-btn #back-btn{
+    background:none;
+    border: none;
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    justify-content: start;
 }
 
 .result-autor{

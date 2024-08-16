@@ -31,7 +31,7 @@ export default function Anexos(){
 				{
 					havebooksInDatabase ? books.map(book => {
 						return(
-							<Card title={book.title} autor={book.autorName} editora={book.editora} ano={book.ano} img={book.cover} description={book.description} link={book.link}/>
+							<Card title={book.title} autor={book.autor} editora={book.editora} ano={book.ano} id={book.id} description={book.description} link={book.link}/>
 						)
 					}) : <h4 className="text-center">Sem livros publicados</h4> 
 				}

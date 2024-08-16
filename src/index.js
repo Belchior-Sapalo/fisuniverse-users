@@ -18,9 +18,9 @@ root.render(
       <Routes>
         <Route element={<App/>}>
           <Route path="/" element={<Home/>}/>
-          <Route path="/anexos" element={<Anexos/>}/>
+          <Route path="/livros" element={<Anexos/>}/>
           <Route path="/posts/search" element={<Search/>}/>
-          <Route path="/livros/searchBook" element={<SearchBook/>}/>
+          <Route path="/livros/search" element={<SearchBook/>}/>
           <Route path="/post" element={<OnePost/>}/>
           <Route path="/book" element={<Book/>}/>
         </Route>

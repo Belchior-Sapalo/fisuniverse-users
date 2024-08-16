@@ -1,37 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../home/home.css'
 import Posts from "../../components/Posts/post";
+import {Link} from 'react-router-dom'
+import {FaFacebook, FaInstagram, FaTelegram, FaYoutube} from 'react-icons/fa'
 
 export default function Home(){
+	
 	return(
 		<main className="">
 			<section id="home-section" className="sec">
-				<div id="home-content-container" className="row">
-					<div id="home-text-form-search" className="col-sm-12 col-md-12 col-lg-6">
-						<h1>Vicelino Chilua</h1>
-					</div>
-					<div id="home-img" className="col-sm-12 col-md-12 col-lg-6">
-						<img src="http://192.168.56.1:8000/adm/get_profile_picture/5" className="img-fluid" alt="fofo indisponível"></img>
+				<div id="home-content-container" className="container">
+					<h1>Vicelino Chilua Simba</h1>
+						<div>
+							Uma viagem ao intrigrante mundo <br/> da fisica
+						</div>
+						<a href="#about-section" id="goDown-tbn" className="btn">Explorar</a>
+						<div id="link-container">
+							<Link className="external-link-home">
+							<FaFacebook className="icon"/>
+							</Link>
+							<Link className="external-link-home">
+								<FaInstagram className="icon"/>
+							</Link>
+							<Link className="external-link-home">
+								<FaTelegram className="icon"/>
+							</Link>
+							<Link className="external-link-home">
+								<FaYoutube className="icon"/>
+							</Link>
 					</div>
 				</div>
 			</section>
 			<section id="about-section" className="sec container">
 
 				<div id="about-content" className="row container">
-					<div className="col-12 about-content-div">
+					<div className="col-12 about-content">
 						<h4 className="sec-title text-center">Sobre mim</h4>
 						
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae debitis asperiores voluptas repellat corporis, quam tempore vel enim officia itaque adipisci eveniet doloremque mollitia, consequatur architecto? Dicta sint aliquid est.
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae debitis asperiores voluptas repellat corporis, quam tempore vel enim officia itaque adipisci eveniet doloremque mollitia, consequatur architecto? Dicta sint aliquid est.
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae debitis asperiores voluptas repellat corporis, quam tempore vel enim officia itaque adipisci eveniet doloremque mollitia, consequatur architecto? Dicta sint aliquid est.
 					</div>
-					<div className="col-sm-12 col-md-6 col-lg-6 about-content-div">
+					<div className="col-sm-12 col-md-6 col-lg-6 about-content">
 						<h4 className="sec-title">Formação</h4>
 						
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae debitis asperiores voluptas repellat corporis, quam tempore vel enim officia itaque adipisci eveniet doloremque mollitia, consequatur architecto? Dicta sint aliquid est.
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae debitis asperiores voluptas repellat corporis, quam tempore vel enim officia itaque adipisci eveniet doloremque mollitia, consequatur architecto? Dicta sint aliquid est.
 					</div>
-					<div className="col-sm-12 col-md-6 col-lg-6 about-content-div">
+					<div className="col-sm-12 col-md-6 col-lg-6 about-content">
 						<h4 className="sec-title">Obras</h4>
 						
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae debitis asperiores voluptas repellat corporis, quam tempore vel enim officia itaque adipisci eveniet doloremque mollitia, consequatur architecto? Dicta sint aliquid est.
@@ -40,7 +56,7 @@ export default function Home(){
 				</div>
 			</section>
 			<section id="post-section" className="sec container">
-				<h4 className="text-center sec-title">Publicações</h4>
+				<h4 className="sec-title">Publicações</h4>
 				<Posts/>
 			</section>
 		</main>

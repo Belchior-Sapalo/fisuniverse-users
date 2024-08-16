@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useSearchParams, useNavigate} from 'react-router-dom'
 import '../search/search.css'
-import {FaThumbsUp, FaMessage} from 'react-icons/fa6'
+import {FaArrowLeft, FaMessage} from 'react-icons/fa6'
 import ComentForm from "../../components/postComentForm/comentForm";
 import { formatDistanceToNow } from "date-fns"
 import { ptBR } from 'date-fns/locale';
@@ -18,8 +18,12 @@ export default function Search(){
 		navigate(`/post?q=${postId}`)
 	}
 
+    function voltar(){
+        navigate(-1)
+    }
+
     useEffect(()=>{
-        const URL = `${API_URL}/procurarPost/${query}`
+        const URL = `${API_URL}/posts/search/${query}`
         fetch(URL)
         .then((res)=>res.json())
         .then((json)=>setResults(json))
@@ -35,17 +39,21 @@ export default function Search(){
 
     return(
         <section id="search-section">
-            <h1 className="result-text text-center">Resultados para: {query}</h1>
-
+            {/* <div id='search-result-header'>
+                <div id='back-btn-container'>
+                </div>
+                <h1 className="result-text text-center">Resultados para: {query}</h1>
+            </div> */}
             <div id="results-container" className="container">
 			{ 
 				results.map(result=>{
 					if(!result.msg){
                         return(
                             <div className="result">
-                                <p className="result-title">
-                                    {result.title}
-                                </p>
+                                <div className="result-title-and-back-btn">
+                                    <button id='back-btn' onClick={()=>voltar()}><FaArrowLeft/></button>
+                                    <h4>{result.title}</h4>
+                                </div>
     
                                 <p className="result-autor">
                                     {result.autor}

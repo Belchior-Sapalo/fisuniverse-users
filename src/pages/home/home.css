@@ -1,51 +1,98 @@
 .sec{
-    min-height: 80vh;
+    min-height: 100vh;
+    padding-top: 60px;
 }
 
 .sec-title{
     color: var(--color-3);
-    text-decoration: underline;
 	margin-bottom: 15px;
+    max-width: max-content;
+    transition: var(--general-transition);
+    position: relative;
+    z-index: -99;
+}
+
+.sec-title::after{
+    position: absolute;
+    content: '';
+    background-color: var(--color-3);
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    transition: var(--general-transition);
 }
 
 #home-section{
-    padding: 70px;
+    background-image: url('../../assets/images/back6.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.387) ;
 }
 
 #home-content-container{
-    padding-top: 20px;
-}
-
-#home-text-form-search{
+    padding: 20px 50px;
+    height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 20px;
 }
 
-#home-img{
-    
+#home-content-container h1{
+	color: white;
 }
 
-#about-content-container{
-    
-}
-
-#about-section{
+#home-content-container > div{
+	color: white;
 
 }
 
-#about-content{
-    
+#goDown-tbn{
+    color: white;
+    font-weight: bold;
+    border-radius: 0;
+    background-color: red;
+    width: 150px;
+    transition: var(--general-transition);
 }
 
-.about-content-div{
-	margin-bottom: 30px;
+#goDown-tbn:hover{
+    background: none;
+    border: 1px solid red;
+    color: red;
 }
 
-#post-section{
-	
+#link-container{
+    display: flex;
+    gap: 8px;
+}
+
+.external-link-home{
+    background-color: rgb(184, 184, 184);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.external-link-home .icon{
+    font-size: 25px;
+    color: rgb(21, 21, 21);
+}
+
+.about-content{
+	margin-bottom: 20px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: var(--general-transition);
+}
+
+.about-content:hover .sec-title::after{
+    width: 100%;
 }
 
 @media screen and (max-width: 718px){

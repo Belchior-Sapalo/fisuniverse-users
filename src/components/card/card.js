@@ -3,12 +3,14 @@ import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Link} from "react-router-dom"
 
-export default function Card({title, autor, ano, editora, description, img, link}) {
+export default function Card({title, autor, ano, editora, description, id, link}) {
     const navigate = useNavigate()
+	const API_URL = 'http://localhost:8000'
+
   return (
     <div id="card-container">
         <div id="post-cover-container">
-            <img className="" src={img} alt={title}/>
+            <img className="" src={`${API_URL}/book/${id}`} alt={title}/>
         </div>
         <div id="text-container">
             <div id="text-about-book">
@@ -26,8 +28,7 @@ export default function Card({title, autor, ano, editora, description, img, link
             </div>
             
             <div id="options-container" >
-                <Link target="_blank" to={link} style={{padding: "2px 4px"}} className="btn btn-success">Baixar</Link>
-                
+                <Link target="_blank" to={link} style={{padding: "2px 8px"}} className="btn btn-dark">Baixar</Link>
             </div>
         </div>
     </div>

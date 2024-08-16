@@ -10,9 +10,10 @@ export default function(){
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
     const [post, setPost] = useState({})
-    const [coments, setComents] = useState([])
+    const [comments, setComments] = useState([])
+    const [haveComments, setHaveComments] = useState(false)
     const q = searchParams.get('q')
-    const API_URL = "http://192.168.56.1:8000"
+    const API_URL = "http://localhost:8000"
 
     function voltar(){
         navigate(-1)
@@ -22,7 +23,14 @@ export default function(){
         const URL = `${API_URL}/post/${q}`
         fetch(URL)
         .then((res)=>res.json())
-        .then((json)=>{setPost(json); setComents(json.coments)})
+        .then((json)=>{
+            if(json.status == 200){
+                setPost(json.post);
+                if(json.comments.length != 0){
+                    setComments(json.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
+                }
+            }
+        })
     },[])
 
     function formatarData(data){
@@ -31,14 +39,49 @@ export default function(){
 	}
     
     return(
+        // <div className="post row" >
+        //     <div id='post-section' className='col-sm-12 col-md-6 col-lg-6'>
+        //         <div className="post-title-and-back-btn">
+        //             <button id='back-btn' onClick={()=>voltar()}><FaArrowLeft/></button>
+        //             <h4>{post.title}</h4>
+        //         </div>
+        //         <p className="post-autor">
+        //             {post.autor}
+        //         </p>
+        //         <p className="post-data-create">
+        //             {}
+        //         </p>
+        //         <div className="post-content">
+        //             {post.content}
+        //         </div>
+        //     </div>
+        //     <div id='comements-section' className='col-sm-12 col-md-6 col-lg-6 row'>
+        //         <div id='comements-container' className='col-sm-12'>
+        //             {
+        //                 haveComments ? <p>Sem comentários</p>: comments.map(comment => {
+        //                 return(
+        //                     <div className="coment">
+        //                         <div className='coment-header'>
+        //                             <p className="coment-email">{comment.email}</p>
+        //                             <p className="coment-data">{formatarData(comment.createdAt)}</p>
+        //                         </div>
+        //                         <p className="coment-content">{comment.content}</p>
+                    
+        //                     </div>
+        //                     )
+        //                 })
+        //             }
+        //         </div>
+        //         <div className='col-sm-12'>
+        //             <ComentForm postId={q}/>
+        //         </div>
+        //     </div>
+        // </div>
         <div className="post container">
-            <div id='back-btn-container'>
+             <div className="post-title-and-back-btn">
                 <button id='back-btn' onClick={()=>voltar()}><FaArrowLeft/></button>
+                <h4>{post.title}</h4>
             </div>
-            <p className="post-title">
-                {post.title}
-            </p>
-
             <p className="post-autor">
                 {post.autor}
             </p>
@@ -49,19 +92,24 @@ export default function(){
                 {post.content}
             </div>
             <ComentForm postId={q}/>
-            {
-                coments.length == 0 ? <p>Sem comentários</p>: coments.map(coment => {
-                return(
-                    <div className="coment">
-                        <div className='coment-header'>
-                            <p className="coment-email">{coment.autorEmail}</p>
-                            <p className="coment-data">{formatarData(coment.createdAt)}</p>
-                        </div>
-                        <p className="coment-content">{coment.content}</p>
-                    </div>
-                )
-                })
-            }
+            <div id='comements-section' className=''>
+                <div id='comements-container'>
+                    {
+                        haveComments ? <p>Sem comentários</p>: comments.map(comment => {
+                        return(
+                            <div className="coment">
+                                <div className='coment-header'>
+                                    <p className="coment-email">{comment.email}</p>
+                                    <p className="coment-data">{formatarData(comment.createdAt)}</p>
+                                </div>
+                                <p className="coment-content">{comment.content}</p>
+                    
+                            </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
         </div>
     )
 }

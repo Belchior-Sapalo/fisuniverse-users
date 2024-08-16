@@ -1,5 +1,8 @@
-#ver-post-section{
-    padding-top: 80px;
+.post{
+    padding: 80px 20px 50px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.026);
+    border-radius: 8px;
 }
 
 #back-btn-container{
@@ -7,13 +10,48 @@
     width: 80px;
 }
 
+.post #post-section{
+    padding: 50px 20px 10px 20px;
+    overflow: auto;
+    height: 400px;
+}
+
+#post-section::-webkit-scrollbar{
+    display: none;
+}
+
+.post-title-and-back-btn{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.post-title-and-back-btn h4{
+    margin: 0;
+}
+
 #back-btn{
     background:none;
     border: none;
+    font-size: 14px;
 }
 
-.post{
-    margin-top: 80px;
+#comements-section{
+}
+
+#comements-container{
+    height: 250px;
+    overflow-y: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.189);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.189);
+}
+
+#comements-container::-webkit-scrollbar{
+    display: none;
+}
+
+.coment{
+    margin-bottom: 0;
 }
 
 .coment-header{
@@ -40,3 +78,10 @@
     align-items: center;
     padding: 4px;
 }
+
+@media (max-width: 718px){
+	#comements-section{
+        border-left: 1px solid black;
+    }
+}
+

@@ -1,5 +1,5 @@
 #posts-container{
-    
+
 }
 
 p{
@@ -7,8 +7,6 @@ p{
 }
 
 .post{
-    padding: 10px;
-    margin-bottom: 20px;
     border: 1px solid rgba(0, 0, 0, 0.026);
     border-radius: 8px;
 }
@@ -31,40 +29,29 @@ p{
 
 }
 
-.post-reactions{
-    display: flex;
+.anexo{
+    text-decoration: none;
+    color: red;
+    display: block;
 }
 
-.reaction{
-    font-size: 25px;
-    padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+#post-more-options{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    margin-top: 10px;
+    flex-direction: column;
     gap: 8px;
+    align-items: start;
+    justify-content: start;
+    padding: 0;
 }
 
-.reaction-num{
-    font-size: 18px;
-}
-
-.like{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
+#post-more-options .ver-coments{
     border: none;
-    width: 100%;
-    height: 100%;
-}
-
-.ver-coments{
-    width: 60px;
-    margin-top: 8px;
-    border: 1px solid whitesmoke;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.236);
+    padding: 4px;
+    min-width: fit-content;
 }
 
 .post-coments{
