@@ -1,14 +1,16 @@
 #posts-container{
-
+    padding: 0;
 }
 
-p{
-    margin: 0;
-}
-
-.post{
+#posts-container .post{
     border: 1px solid rgba(0, 0, 0, 0.026);
     border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#posts-container .post:last-child{
+    margin-bottom: 40px;
 }
 
 .post-title{

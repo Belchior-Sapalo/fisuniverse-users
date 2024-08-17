@@ -5,6 +5,7 @@ import '../post/OnePost.css'
 import ComentForm from '../../components/postComentForm/comentForm'
 import { formatDistanceToNow } from "date-fns"
 import { ptBR } from 'date-fns/locale';
+import Logo from '../../components/logo/logo'
 
 export default function(){
     const [searchParams] = useSearchParams()
@@ -28,6 +29,7 @@ export default function(){
                 setPost(json.post);
                 if(json.comments.length != 0){
                     setComments(json.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
+                    setHaveComments(true)
                 }
             }
         })
@@ -36,6 +38,17 @@ export default function(){
     function formatarData(data){
 		const createdAtFormated = formatDistanceToNow(data, { addSuffix: true, locale: ptBR });
 		return createdAtFormated;
+	}
+
+    function Header(){
+		return(
+			<nav id="header">
+                <button id='back-btn' onClick={()=>voltar()}><FaArrowLeft/></button>
+				<div id="logo-container">
+					<Logo/>
+				</div>
+			</nav>
+		)
 	}
     
     return(
@@ -78,10 +91,8 @@ export default function(){
         //     </div>
         // </div>
         <div className="post container">
-             <div className="post-title-and-back-btn">
-                <button id='back-btn' onClick={()=>voltar()}><FaArrowLeft/></button>
-                <h4>{post.title}</h4>
-            </div>
+            <Header/>
+            <h4>{post.title}</h4>
             <p className="post-autor">
                 {post.autor}
             </p>
@@ -95,18 +106,18 @@ export default function(){
             <div id='comements-section' className=''>
                 <div id='comements-container'>
                     {
-                        haveComments ? <p>Sem comentários</p>: comments.map(comment => {
-                        return(
-                            <div className="coment">
-                                <div className='coment-header'>
-                                    <p className="coment-email">{comment.email}</p>
-                                    <p className="coment-data">{formatarData(comment.createdAt)}</p>
+                        haveComments ? comments.map(comment => {
+                            return(
+                                <div className="coment">
+                                    <div className='coment-header'>
+                                        <p className="coment-email">{comment.email}</p>
+                                        <p className="coment-data">{formatarData(comment.createdAt)}</p>
+                                    </div>
+                                    <p className="coment-content">{comment.content}</p>
+                        
                                 </div>
-                                <p className="coment-content">{comment.content}</p>
-                    
-                            </div>
-                            )
-                        })
+                                )
+                        }): <p>Sem comentários</p> 
                     }
                 </div>
             </div>

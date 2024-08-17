@@ -1,6 +1,6 @@
 .sec{
     min-height: 100vh;
-    padding-top: 60px;
+    padding-top: 90px;
 }
 
 .sec-title{
@@ -93,6 +93,15 @@
 
 .about-content:hover .sec-title::after{
     width: 100%;
+}
+
+#post-section{
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+#post-section .sec-title{
+    margin-left: 6px;
 }
 
 @media screen and (max-width: 718px){

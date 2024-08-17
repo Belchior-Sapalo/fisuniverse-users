@@ -1,5 +1,5 @@
 #search-section{
-    padding-top: 70px;
+    padding-top: 90px;
     min-height: 100vh;
 }
 
@@ -16,6 +16,16 @@
 
 #results-container{
 
+}
+
+.ver-coments{
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.236);
+    padding: 4px;
+    min-width: fit-content;
 }
 
 p{

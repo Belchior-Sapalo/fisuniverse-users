@@ -14,7 +14,7 @@ export default function Search(){
     const navigate = useNavigate()
     const API_URL = "http://localhost:8000"
 
-    function verPost(postId){
+    function handleSeePostComments(postId){
 		navigate(`/post?q=${postId}`)
 	}
 
@@ -27,9 +27,6 @@ export default function Search(){
         fetch(URL)
         .then((res)=>res.json())
         .then((json)=>setResults(json))
-        .catch(error=>{
-            alert("Servidor fora do ar")
-        })
     },[query])
     
     function formatarData(data){
@@ -39,11 +36,7 @@ export default function Search(){
 
     return(
         <section id="search-section">
-            {/* <div id='search-result-header'>
-                <div id='back-btn-container'>
-                </div>
-                <h1 className="result-text text-center">Resultados para: {query}</h1>
-            </div> */}
+            <h1 className="result-text text-center">Resultados para: {query}</h1>
             <div id="results-container" className="container">
 			{ 
 				results.map(result=>{
@@ -51,7 +44,6 @@ export default function Search(){
                         return(
                             <div className="result">
                                 <div className="result-title-and-back-btn">
-                                    <button id='back-btn' onClick={()=>voltar()}><FaArrowLeft/></button>
                                     <h4>{result.title}</h4>
                                 </div>
     
@@ -64,7 +56,7 @@ export default function Search(){
                                 <div className="result-content">
                                     {result.content}
                                 </div>
-                                <button className="btn ver-coments"  onClick={()=>verPost(result.id)}><FaMessage/></button>
+                                <button className="btn ver-coments" onClick={()=>handleSeePostComments(result.id)}><FaMessage color="rgba(0, 0, 0, 0.5)"/> Comentários</button>
                                 <div className="result-coments" style={{display: verComents? 'inline': 'none'}}>
                                 <ComentForm postId={result.id}/>	
                                 </div>

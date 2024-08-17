@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaSearch } from 'react-icons/fa';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, NavLink } from 'react-router-dom';
 import '../navbar/navbar.css';
 import Logo from "../logo/logo";
 
@@ -69,10 +69,15 @@ export default function Navbar(){
 					</div>
 					
 					<ul id="nav-list">
-						<li className="nav-list-item"><Link className="nav-bar-link"  to='/'>Home</Link></li>
-						<li className="nav-list-item"><Link className="nav-bar-link" to='/livros'>Livros</Link></li>
+						<li className="nav-list-item"><NavLink style={({isActive}) => ({
+								color: isActive ? "rgb(251, 94, 94)": "whitesmoke"
+							})} className="nav-bar-link"  to='/'>Home</NavLink></li>
+						<li className="nav-list-item"><NavLink style={({isActive}) => ({
+								color: isActive ? "rgb(251, 94, 94)": "whitesmoke"
+							})} className="nav-bar-link" to='/livros'>Livros</NavLink></li>
 					</ul>
 				</nav>
+				
 		</div>
 	)
 }

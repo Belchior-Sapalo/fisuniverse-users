@@ -12,7 +12,7 @@ export default function Home(){
 				<div id="home-content-container" className="container">
 					<h1>Vicelino Chilua Simba</h1>
 						<div>
-							Uma viagem ao intrigrante mundo <br/> da fisica
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae debitis asperiores <br/> voluptas repellat  corporis, quam tempore vel enim officia itaque adipisci eveniet doloremque mollitia,
 						</div>
 						<a href="#about-section" id="goDown-tbn" className="btn">Explorar</a>
 						<div id="link-container">
@@ -56,8 +56,10 @@ export default function Home(){
 				</div>
 			</section>
 			<section id="post-section" className="sec container">
-				<h4 className="sec-title">Publicações</h4>
-				<Posts/>
+				<div id="posts-container">
+					<h4 className="sec-title text-center">Publicações</h4>
+					<Posts/>
+				</div>
 			</section>
 		</main>
 	)

@@ -8,7 +8,6 @@ import Anexos from './pages/anexos/anexos';
 import Search from './pages/search/search';
 import './index.css';
 import OnePost from './pages/post/OnePost';
-import Book from './pages/book/OneBook';
 import SearchBook from './pages/searchBook/searchBook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,7 +21,6 @@ root.render(
           <Route path="/posts/search" element={<Search/>}/>
           <Route path="/livros/search" element={<SearchBook/>}/>
           <Route path="/post" element={<OnePost/>}/>
-          <Route path="/book" element={<Book/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
