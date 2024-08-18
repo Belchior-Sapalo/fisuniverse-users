@@ -10,6 +10,7 @@ export default function SearchBook() {
     const [searchParams] = useSearchParams()
     const [results, setResults] = useState([])
     const query = searchParams.get('q')
+    const [isLoading, setIsLoading] = useState(false)
 	const [havebooksInDatabase, setHavebooksInDatabase] = useState(false);
     const navigate = useNavigate()
     const API_URL = "http://localhost:8000"
@@ -20,6 +21,7 @@ export default function SearchBook() {
 
     
     useEffect(()=>{
+        setIsLoading(true)
         const URL = `${API_URL}/books/search/${query}`
         fetch(URL).then((res)=>{
             if(res.status == 500){
@@ -30,9 +32,11 @@ export default function SearchBook() {
             if(json.founded){
                 setHavebooksInDatabase(true)
                 setResults(json.result)
+                setIsLoading(false)
             }else{
                 setHavebooksInDatabase(false)
                 setResults([])
+                setIsLoading(false)
             }
         })
         .catch(error=>{
@@ -55,7 +59,7 @@ export default function SearchBook() {
                     return(
                         <Card title={book.title} autor={book.autor} editora={book.editora} ano={book.ano} id={book.id} description={book.description}/>
                     )
-                }) : <h4>Nenhum resultado encontrado, verifique sua entrada</h4> 
+                }) : isLoading ?  <h4 className="p-4">Buscando resultados...</h4> : <h4 className="p-4">Nenhum resultado encontrado</h4>
             }
 		</div>
     </section>

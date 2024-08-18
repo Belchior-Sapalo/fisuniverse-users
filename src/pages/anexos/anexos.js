@@ -1,17 +1,15 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import '../anexos/anexos.css'
-import {FaMessage} from 'react-icons/fa6'
-import {useNavigate} from 'react-router-dom'
-import { formatDistanceToNow } from "date-fns"
-import { ptBR } from 'date-fns/locale';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import Card from "../../components/card/card";
+import '../anexos/anexos.css';
 
 export default function Anexos(){
 	const [books, setBooks] = useState([]);
 	const [havebooksInDatabase, setHavebooksInDatabase] = useState(false);
+	const [isLoading, setIsLoading] = useState(false)
 	const navigate = useNavigate()
 	useEffect(()=>{
+		setIsLoading(true)
 		const URL = 'http://localhost:8000/books'
 		fetch(URL)
         .then((res)=>{
@@ -24,8 +22,10 @@ export default function Anexos(){
 			if(json.founded){
 				setBooks(json.result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
 				setHavebooksInDatabase(true)
+				setIsLoading(false)
 			}else{
 				setHavebooksInDatabase(false)
+				setIsLoading(false)
 			}
 		}).catch(error => {
 			navigate('/error')
@@ -40,7 +40,7 @@ export default function Anexos(){
 						return(
 							<Card title={book.title} autor={book.autor} editora={book.editora} ano={book.ano} id={book.id} description={book.description} link={book.link}/>
 						)
-					}) : <h4 className="text-center">Sem livros publicados</h4> 
+					}) : isLoading ?  <h5>Buscando livros...</h5> : <h5>Sem livros publicados...</h5>
 				}
 			</div>
 		</section>

@@ -9,6 +9,7 @@ import { ptBR } from 'date-fns/locale';
 export default function Posts(){
 	const [posts, setPosts] = useState([])
 	const [isExpanded, setIsExpanded] = useState(false)
+	const [isLoading, setIsLoading] = useState(false)
 	const maxLength = 200;
 	const navigate = useNavigate()
 	const [havePostsInDatabase, setHavePostsInDatabase] = useState(false);
@@ -22,6 +23,7 @@ export default function Posts(){
 	}
 
 	useEffect(()=>{
+		setIsLoading(true)
 		const URL = 'http://localhost:8000/posts'
 		fetch(URL)
 		.then((res)=>{
@@ -33,8 +35,10 @@ export default function Posts(){
 			if(json.founded){
 				setHavePostsInDatabase(true)
 				setPosts(json.result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
+				setIsLoading(false)
 			}else{
 				setHavePostsInDatabase(false)
+				setIsLoading(false)
 			}
 		}).catch(error => {
 			navigate('/error')
@@ -76,7 +80,7 @@ export default function Posts(){
 							</div>
 						</div>
 					)
-				}): <h5>Sem publicações...</h5>
+				}): isLoading ?  <h5>Buscando publicações...</h5> : <h5>Sem publicações...</h5>
 			}
 		</div>
 	)

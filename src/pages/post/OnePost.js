@@ -13,6 +13,8 @@ export default function(){
     const [post, setPost] = useState({})
     const [comments, setComments] = useState([])
     const [haveComments, setHaveComments] = useState(false)
+    const [isLoadingPost, setIsLoadingPost] = useState(false)
+    const [isLoadingComments, setIsLoadingComments] = useState(false)
     const q = searchParams.get('q')
     const API_URL = "http://localhost:8000"
 
@@ -21,6 +23,8 @@ export default function(){
     }
 
     useEffect(()=>{
+        setIsLoadingPost(true)
+        setIsLoadingComments(true)
         const URL = `${API_URL}/post/${q}`
         fetch(URL)
         .then((res)=>{ 
@@ -33,12 +37,16 @@ export default function(){
         .then((json)=>{
             if(json.founded){
                 setPost(json.post);
+                setIsLoadingPost(false)
                 if(json.comments.length != 0){
                     setComments(json.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
                     setHaveComments(true)
+                    setIsLoadingComments(false)
                 }else{
                     setHaveComments(false)
+                    setIsLoadingComments(false)
                 }
+                setIsLoadingPost(false)
             }
         }).catch(error => {
             navigate('/error')
@@ -102,16 +110,21 @@ export default function(){
         // </div>
         <div className="post container">
             <Header/>
-            <h4>{post.title}</h4>
-            <p className="post-autor">
-                {post.autor}
-            </p>
-            <p className="post-data-create">
-                {}
-            </p>
-            <div className="post-content">
-                {post.content}
-            </div>
+            {
+                isLoadingPost ? <h5>Aguarde...</h5> :
+                <div>
+                    <h4>{post.title}</h4>
+                    <p className="post-autor">
+                        {post.autor}
+                    </p>
+                    <p className="post-data-create">
+                        {}
+                    </p>
+                    <div className="post-content">
+                        {post.content}
+                    </div>
+                </div>
+            }
             <ComentForm postId={q}/>
             <div id='comements-section' className=''>
                 <div id='comements-container'>
@@ -127,7 +140,7 @@ export default function(){
                         
                                 </div>
                                 )
-                        }): <p>Sem comentários</p> 
+                        }): isLoadingComments ? <p>Buscando comentários...</p> : <p>Sem comentários</p>
                     }
                 </div>
             </div>

@@ -10,8 +10,9 @@ export default function Search(){
     const [searchParams] = useSearchParams()
     const [results, setResults] = useState([])
     const [verComents, setVerComents] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const query = searchParams.get('q')
-    const [foundedSomeResult, setFoundedSomeResult] = useState('false')
+    const [foundedSomeResult, setFoundedSomeResult] = useState(false)
     const navigate = useNavigate()
     const API_URL = "http://localhost:8000"
 
@@ -24,6 +25,7 @@ export default function Search(){
     }
 
     useEffect(()=>{
+        setIsLoading(true)
         const URL = `${API_URL}/posts/search/${query}`
         fetch(URL)
         .then((res)=>{
@@ -36,9 +38,11 @@ export default function Search(){
             if(json.founded){
                 setResults(json.result)
                 setFoundedSomeResult(true)
+                setIsLoading(false)
             }else{
                 setResults(json.msg)
                 setFoundedSomeResult(false)
+                setIsLoading(false)
             }
         }).catch(error => {
             navigate('/error')
@@ -52,7 +56,7 @@ export default function Search(){
 
     return(
         <section id="search-section">
-            <h1 className="result-text text-center">Resultados para: {query}</h1>
+            {/* <h1 className="result-text text-center">Resultados para: {query}</h1> */}
             <div id="results-container" className="container">
 			{ 
 
@@ -78,7 +82,7 @@ export default function Search(){
                             </div>
                         </div>
                     )
-                }): <h4 className="text-center">{results.msg}</h4>
+                }): isLoading ? <h4 className="p-4 text-center">Buscando resultados...</h4> : <h4 className="text-p-4 text-center">{results.msg}</h4>
 			}
 		</div>
         </section>
