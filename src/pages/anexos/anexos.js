@@ -10,18 +10,25 @@ import Card from "../../components/card/card";
 export default function Anexos(){
 	const [books, setBooks] = useState([]);
 	const [havebooksInDatabase, setHavebooksInDatabase] = useState(false);
-
+	const navigate = useNavigate()
 	useEffect(()=>{
 		const URL = 'http://localhost:8000/books'
 		fetch(URL)
-		.then((res)=>res.json())
+        .then((res)=>{
+            if(res.status == 500){
+                throw new Error('Falha no servidor')
+            }
+            return res.json()
+        })
 		.then((json)=>{
-			if(json.status != 404){
-				setBooks(json.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
+			if(json.founded){
+				setBooks(json.result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
 				setHavebooksInDatabase(true)
 			}else{
 				setHavebooksInDatabase(false)
 			}
+		}).catch(error => {
+			navigate('/error')
 		})
 	}, [])
 

@@ -9,6 +9,7 @@ import Search from './pages/search/search';
 import './index.css';
 import OnePost from './pages/post/OnePost';
 import SearchBook from './pages/searchBook/searchBook';
+import ErrorPage from './pages/errorPage/errorPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
           <Route path="/posts/search" element={<Search/>}/>
           <Route path="/livros/search" element={<SearchBook/>}/>
           <Route path="/post" element={<OnePost/>}/>
+          <Route path="/error" element={<ErrorPage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

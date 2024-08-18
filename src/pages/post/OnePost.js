@@ -23,15 +23,25 @@ export default function(){
     useEffect(()=>{
         const URL = `${API_URL}/post/${q}`
         fetch(URL)
-        .then((res)=>res.json())
+        .then((res)=>{ 
+            if(res.status == 500){
+                throw new Error('Falha no servidor')
+            }
+
+            return res.json()
+        })
         .then((json)=>{
-            if(json.status == 200){
+            if(json.founded){
                 setPost(json.post);
                 if(json.comments.length != 0){
                     setComments(json.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
                     setHaveComments(true)
+                }else{
+                    setHaveComments(false)
                 }
             }
+        }).catch(error => {
+            navigate('/error')
         })
     },[])
 

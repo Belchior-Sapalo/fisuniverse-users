@@ -21,12 +21,15 @@ export default function SearchBook() {
     
     useEffect(()=>{
         const URL = `${API_URL}/books/search/${query}`
-        fetch(URL)
-        .then((res)=>res.json())
-        .then((json)=>{
-            if(json.status != 404 && json.status != 500){
+        fetch(URL).then((res)=>{
+            if(res.status == 500){
+                throw new Error('Falha no servidor')
+            }
+            return res.json()
+        }).then((json)=>{
+            if(json.founded){
                 setHavebooksInDatabase(true)
-                setResults(json)
+                setResults(json.result)
             }else{
                 setHavebooksInDatabase(false)
                 setResults([])

@@ -40,6 +40,10 @@
     gap: 20px;
 }
 
+#admin-name{
+    font-size: clamp(1.5rem, 5vw, 40px);
+}
+
 #home-content-container h1{
 	color: white;
 }

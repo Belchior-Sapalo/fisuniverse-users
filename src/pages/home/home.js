@@ -10,7 +10,7 @@ export default function Home(){
 		<main className="">
 			<section id="home-section" className="sec">
 				<div id="home-content-container" className="container">
-					<h1>Vicelino Chilua Simba</h1>
+					<h1 id="admin-name">Vicelino Chilua Simba</h1>
 						<div>
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae debitis asperiores <br/> voluptas repellat  corporis, quam tempore vel enim officia itaque adipisci eveniet doloremque mollitia,
 						</div>

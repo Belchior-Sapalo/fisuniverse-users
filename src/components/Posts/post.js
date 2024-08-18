@@ -24,14 +24,20 @@ export default function Posts(){
 	useEffect(()=>{
 		const URL = 'http://localhost:8000/posts'
 		fetch(URL)
-		.then((res)=>res.json())
-		.then((json)=>{
-			if(json.status != 404){
-				setPosts(json.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
+		.then((res)=>{
+			if(res.status == 500){
+                throw new Error('Falha no servidor')
+            }
+            return res.json()
+		}).then((json)=>{
+			if(json.founded){
 				setHavePostsInDatabase(true)
+				setPosts(json.result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
 			}else{
 				setHavePostsInDatabase(false)
 			}
+		}).catch(error => {
+			navigate('/error')
 		})
 	}, [])
 

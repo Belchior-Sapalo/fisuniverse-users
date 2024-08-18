@@ -20,7 +20,7 @@ export default function Navbar(){
 	}
 
 	useEffect(() => {
-		if(!(location.pathname.includes('/post') || location.pathname.includes('/livros'))){
+		if(!(location.pathname.includes('/post') || location.pathname.includes('/livros') || location.pathname.includes('/error'))){
 			window.addEventListener('scroll', handleScroll)
 
 			return () => {
