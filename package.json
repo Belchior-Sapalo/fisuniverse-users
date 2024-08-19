@@ -1,5 +1,5 @@
 {
-  "homepage": "https://Belchior-Sapalo.github.io/fisuniverse-users",
+  "homepage": "https://belchior-sapalo.github.io/fisuniverse-users",
   "name": "fisuniverse-users",
   "version": "0.1.0",
   "private": true,
@@ -18,9 +18,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predploy": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start --host 0.0.0.0",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

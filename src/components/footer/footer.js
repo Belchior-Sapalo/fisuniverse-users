@@ -1,7 +1,7 @@
 import React from "react";
-import '../footer/footer.css'
-import {FaFacebook, FaInstagram, FaTelegram} from 'react-icons/fa'
-import {Link, useNavigate} from 'react-router-dom'
+import { FaFacebook, FaInstagram, FaTelegram } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import '../footer/footer.css';
 import Logo from "../logo/logo";
 
 

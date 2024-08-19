@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaSearch } from 'react-icons/fa';
-import { Link, useLocation, useNavigate, NavLink } from 'react-router-dom';
-import '../navbar/navbar.css';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from "../logo/logo";
+import '../navbar/navbar.css';
 
 export default function Navbar(){
 	const [navStyle, setNavStyle] = useState(false)
@@ -29,7 +29,7 @@ export default function Navbar(){
 		}else{
 			setNavStyle(true)
 		}
-	})
+	}, [location.pathname])
 
 	function SearchBar(){
 		const [searchValue, setSearchValue] = useState('')

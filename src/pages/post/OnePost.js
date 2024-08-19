@@ -8,7 +8,7 @@ import { ptBR } from 'date-fns/locale';
 import Logo from '../../components/logo/logo'
 import { API_URL } from '../../components/globalVarables/variaveis'
 
-export default function(){
+export default function Post(){
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
     const [post, setPost] = useState({})
@@ -28,7 +28,7 @@ export default function(){
         const URL = `${API_URL}/post/${q}`
         fetch(URL)
         .then((res)=>{ 
-            if(res.status == 500){
+            if(res.status === 500){
                 throw new Error('Falha no servidor')
             }
 
@@ -38,7 +38,7 @@ export default function(){
             if(json.founded){
                 setPost(json.post);
                 setIsLoadingPost(false)
-                if(json.comments.length != 0){
+                if(json.comments.length !== 0){
                     setComments(json.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
                     setHaveComments(true)
                     setIsLoadingComments(false)
@@ -51,7 +51,7 @@ export default function(){
         }).catch(error => {
             navigate('/error')
         })
-    },[])
+    },[navigate, q])
 
     function formatarData(data){
 		const createdAtFormated = formatDistanceToNow(data, { addSuffix: true, locale: ptBR });
@@ -124,7 +124,7 @@ export default function(){
                         {post.content}
                     </div>
                     {
-                        post.anexo && <a className="anexo" href={post.anexo} target="_blank">{post.anexo}</a>
+                        post.anexo && <a className="anexo" href={post.anexo} target="_blank" rel="noreferrer">{post.anexo}</a>
 				   }
                 </div>
             }

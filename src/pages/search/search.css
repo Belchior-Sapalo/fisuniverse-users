@@ -25,7 +25,9 @@
     gap: 8px;
     border: 1px solid rgba(0, 0, 0, 0.236);
     padding: 4px;
+    min-width: -moz-fit-content;
     min-width: fit-content;
+    min-width: -webkit-fill-available; 
 }
 
 p{
@@ -58,7 +60,7 @@ p{
     font-size: 14px;
     height: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .result-autor{

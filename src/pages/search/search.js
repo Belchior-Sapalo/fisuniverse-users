@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from "react";
-import {useSearchParams, useNavigate} from 'react-router-dom'
-import '../search/search.css'
-import {FaArrowLeft, FaMessage} from 'react-icons/fa6'
-import ComentForm from "../../components/postComentForm/comentForm";
-import { formatDistanceToNow } from "date-fns"
+import { formatDistanceToNow } from "date-fns";
 import { ptBR } from 'date-fns/locale';
+import React, { useEffect, useState } from "react";
+import { FaMessage } from 'react-icons/fa6';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { API_URL } from "../../components/globalVarables/variaveis";
+import ComentForm from "../../components/postComentForm/comentForm";
+import '../search/search.css';
 
 export default function Search(){
     const [searchParams] = useSearchParams()
     const [results, setResults] = useState([])
-    const [verComents, setVerComents] = useState(false)
+    const [verComents] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const query = searchParams.get('q')
     const [foundedSomeResult, setFoundedSomeResult] = useState(false)
@@ -20,16 +20,12 @@ export default function Search(){
 		navigate(`/post?q=${postId}`)
 	}
 
-    function voltar(){
-        navigate(-1)
-    }
-
     useEffect(()=>{
         setIsLoading(true)
         const URL = `${API_URL}/posts/search/${query}`
         fetch(URL)
         .then((res)=>{
-            if(res.status == 500){
+            if(res.status === 500){
                 throw new Error('Falha no servidor')
             }
             return res.json()
@@ -47,7 +43,7 @@ export default function Search(){
         }).catch(error => {
             navigate('/error')
         })
-    },[query])
+    },[navigate, query])
     
     function formatarData(data){
 		const createdAtFormated = formatDistanceToNow(data, { addSuffix: true, locale: ptBR });
@@ -77,7 +73,7 @@ export default function Search(){
                                 {result.content}
                             </div>
                             {
-                                result.anexo && <a className="anexo" href={result.anexo} target="_blank">{result.anexo}</a>
+                                result.anexo && <a className="anexo" href={result.anexo} target="_blank" rel="noreferrer">{result.anexo}</a>
 				           }
                             <button className="btn ver-coments" onClick={()=>handleSeePostComments(result.id)}><FaMessage color="rgba(0, 0, 0, 0.5)"/> Comentários</button>
                             <div className="result-coments" style={{display: verComents? 'inline': 'none'}}>

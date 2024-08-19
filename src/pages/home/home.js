@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import '../home/home.css'
+import React from "react";
+import { FaFacebook, FaInstagram, FaTelegram, FaYoutube } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import Posts from "../../components/Posts/post";
-import {Link} from 'react-router-dom'
-import {FaFacebook, FaInstagram, FaTelegram, FaYoutube} from 'react-icons/fa'
+import '../home/home.css';
 
 export default function Home(){
 	

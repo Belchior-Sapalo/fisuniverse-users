@@ -13,17 +13,12 @@ export default function SearchBook() {
     const [isLoading, setIsLoading] = useState(false)
 	const [havebooksInDatabase, setHavebooksInDatabase] = useState(false);
     const navigate = useNavigate()
-
-    function voltar(){
-        navigate(-1)
-    }
-
     
     useEffect(()=>{
         setIsLoading(true)
         const URL = `${API_URL}/books/search/${query}`
         fetch(URL).then((res)=>{
-            if(res.status == 500){
+            if(res.status === 500){
                 throw new Error('Falha no servidor')
             }
             return res.json()
@@ -41,7 +36,7 @@ export default function SearchBook() {
         .catch(error=>{
             navigate('/error')
         })
-    },[query])
+    },[navigate, query])
 
   return (
     <section id="searchBook-section">

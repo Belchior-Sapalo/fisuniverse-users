@@ -15,7 +15,7 @@ export default function Anexos(){
 		const URL = `${API_URL}/books`
 		fetch(URL)
         .then((res)=>{
-            if(res.status == 500){
+            if(res.status === 500){
                 throw new Error('Falha no servidor')
             }
             return res.json()
@@ -32,7 +32,7 @@ export default function Anexos(){
 		}).catch(error => {
 			navigate('/error')
 		})
-	}, [])
+	}, [navigate])
 
 	return(
 		<section id="anexos-section">

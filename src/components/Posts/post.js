@@ -1,10 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import '../Posts/post.css'
-import {FaMessage} from 'react-icons/fa6'
-import {useNavigate} from 'react-router-dom'
-import { formatDistanceToNow } from "date-fns"
+import { formatDistanceToNow } from "date-fns";
 import { ptBR } from 'date-fns/locale';
+import React, { useEffect, useState } from "react";
+import { FaMessage } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
+import '../Posts/post.css';
 import { API_URL } from "../globalVarables/variaveis";
 
 export default function Posts(){
@@ -14,6 +13,7 @@ export default function Posts(){
 	const maxLength = 200;
 	const navigate = useNavigate()
 	const [havePostsInDatabase, setHavePostsInDatabase] = useState(false);
+	
 	function handleSeePostComments(postId){
 		navigate(`/post?q=${postId}`)
 	}
@@ -27,7 +27,7 @@ export default function Posts(){
 		const URL = `${API_URL}/posts`
 		fetch(URL)
 		.then((res)=>{
-			if(res.status == 500){
+			if(res.status === 500){
                 throw new Error('Falha no servidor')
             }
             return res.json()
@@ -43,7 +43,7 @@ export default function Posts(){
 		}).catch(error => {
 			navigate('/error')
 		})
-	}, [])
+	}, [navigate])
 
 	function formatarData(data){
 		const createdAtFormated = formatDistanceToNow(data, { addSuffix: true, locale: ptBR });
@@ -69,7 +69,7 @@ export default function Posts(){
 								{ isExpanded ?  post.content : `${post.content.substring(0, maxLength)}...`}
 							</div>
 							{
-								post.anexo && <a className="anexo" href={post.anexo} target="_blank">{post.anexo}</a>
+								post.anexo && <a className="anexo" href={post.anexo} target="_blank" rel="noreferrer">{post.anexo}</a>
 							}
 							<div id="post-more-options">
 								<button className="btn" onClick={toggleExpand}>{isExpanded ? 'Ver menos' : 'Ver mais'}</button>
