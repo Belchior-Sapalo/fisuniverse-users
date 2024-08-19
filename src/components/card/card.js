@@ -2,10 +2,10 @@ import "../card/card.css"
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Link} from "react-router-dom"
+import { API_URL } from "../globalVarables/variaveis"
 
 export default function Card({title, autor, ano, editora, description, id, link}) {
     const navigate = useNavigate()
-	const API_URL = 'http://localhost:8000'
 
   return (
     <div id="card-container">
@@ -28,7 +28,7 @@ export default function Card({title, autor, ano, editora, description, id, link}
             </div>
             
             <div id="options-container" >
-                <Link target="_blank" to={link} style={{padding: "2px 8px"}} className="btn btn-dark">Baixar</Link>
+                <a target="_blank" href={link} style={{padding: "2px 8px"}} className="btn btn-dark">Baixar</a>
             </div>
         </div>
     </div>

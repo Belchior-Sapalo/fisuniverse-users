@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Card from "../../components/card/card";
 import '../anexos/anexos.css';
+import { API_URL } from "../../components/globalVarables/variaveis";
 
 export default function Anexos(){
 	const [books, setBooks] = useState([]);
 	const [havebooksInDatabase, setHavebooksInDatabase] = useState(false);
 	const [isLoading, setIsLoading] = useState(false)
 	const navigate = useNavigate()
+
 	useEffect(()=>{
 		setIsLoading(true)
-		const URL = 'http://localhost:8000/books'
+		const URL = `${API_URL}/books`
 		fetch(URL)
         .then((res)=>{
             if(res.status == 500){

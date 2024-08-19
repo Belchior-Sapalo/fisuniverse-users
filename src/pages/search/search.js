@@ -5,6 +5,7 @@ import {FaArrowLeft, FaMessage} from 'react-icons/fa6'
 import ComentForm from "../../components/postComentForm/comentForm";
 import { formatDistanceToNow } from "date-fns"
 import { ptBR } from 'date-fns/locale';
+import { API_URL } from "../../components/globalVarables/variaveis";
 
 export default function Search(){
     const [searchParams] = useSearchParams()
@@ -14,7 +15,6 @@ export default function Search(){
     const query = searchParams.get('q')
     const [foundedSomeResult, setFoundedSomeResult] = useState(false)
     const navigate = useNavigate()
-    const API_URL = "http://localhost:8000"
 
     function handleSeePostComments(postId){
 		navigate(`/post?q=${postId}`)
@@ -76,6 +76,9 @@ export default function Search(){
                             <div className="result-content">
                                 {result.content}
                             </div>
+                            {
+                                result.anexo && <a className="anexo" href={result.anexo} target="_blank">{result.anexo}</a>
+				           }
                             <button className="btn ver-coments" onClick={()=>handleSeePostComments(result.id)}><FaMessage color="rgba(0, 0, 0, 0.5)"/> Comentários</button>
                             <div className="result-coments" style={{display: verComents? 'inline': 'none'}}>
                             <ComentForm postId={result.id}/>	

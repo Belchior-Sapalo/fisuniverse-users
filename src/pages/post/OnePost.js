@@ -6,6 +6,7 @@ import ComentForm from '../../components/postComentForm/comentForm'
 import { formatDistanceToNow } from "date-fns"
 import { ptBR } from 'date-fns/locale';
 import Logo from '../../components/logo/logo'
+import { API_URL } from '../../components/globalVarables/variaveis'
 
 export default function(){
     const [searchParams] = useSearchParams()
@@ -16,7 +17,6 @@ export default function(){
     const [isLoadingPost, setIsLoadingPost] = useState(false)
     const [isLoadingComments, setIsLoadingComments] = useState(false)
     const q = searchParams.get('q')
-    const API_URL = "http://localhost:8000"
 
     function voltar(){
         navigate(-1)
@@ -123,6 +123,9 @@ export default function(){
                     <div className="post-content">
                         {post.content}
                     </div>
+                    {
+                        post.anexo && <a className="anexo" href={post.anexo} target="_blank">{post.anexo}</a>
+				   }
                 </div>
             }
             <ComentForm postId={q}/>
@@ -137,7 +140,6 @@ export default function(){
                                         <p className="coment-data">{formatarData(comment.createdAt)}</p>
                                     </div>
                                     <p className="coment-content">{comment.content}</p>
-                        
                                 </div>
                                 )
                         }): isLoadingComments ? <p>Buscando comentários...</p> : <p>Sem comentários</p>

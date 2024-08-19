@@ -1,10 +1,10 @@
-import "../searchBook/searchBook.css"
-import {useSearchParams, useNavigate} from 'react-router-dom'
-import {useEffect, useState} from "react";
-import {FaArrowLeft} from 'react-icons/fa'
-import Card from "../../components/card/card"
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import Card from "../../components/card/card";
+import "../searchBook/searchBook.css";
+import { API_URL } from "../../components/globalVarables/variaveis";
 
-import React from 'react'
+import React from 'react';
 
 export default function SearchBook() {
     const [searchParams] = useSearchParams()
@@ -13,7 +13,6 @@ export default function SearchBook() {
     const [isLoading, setIsLoading] = useState(false)
 	const [havebooksInDatabase, setHavebooksInDatabase] = useState(false);
     const navigate = useNavigate()
-    const API_URL = "http://localhost:8000"
 
     function voltar(){
         navigate(-1)
@@ -40,7 +39,7 @@ export default function SearchBook() {
             }
         })
         .catch(error=>{
-            alert("Servidor fora do ar")
+            navigate('/error')
         })
     },[query])
 

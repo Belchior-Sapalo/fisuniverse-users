@@ -74,18 +74,29 @@
 }
 
 .external-link-home{
-    background-color: rgb(184, 184, 184);
+    background-color: aliceblue;
     border-radius: 50%;
     height: 30px;
     width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: var(--general-transition);
 }
 
 .external-link-home .icon{
-    font-size: 25px;
-    color: rgb(21, 21, 21);
+    font-size: 20px;
+    color: black;
+    transition: var(--general-transition);
+}
+
+.external-link-home:hover{
+    background: none;
+    border: 1px solid var(--color-3);
+}
+
+.external-link-home:hover .icon{
+    color: var(--color-3);
 }
 
 .about-content{

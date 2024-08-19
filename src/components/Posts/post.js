@@ -5,6 +5,7 @@ import {FaMessage} from 'react-icons/fa6'
 import {useNavigate} from 'react-router-dom'
 import { formatDistanceToNow } from "date-fns"
 import { ptBR } from 'date-fns/locale';
+import { API_URL } from "../globalVarables/variaveis";
 
 export default function Posts(){
 	const [posts, setPosts] = useState([])
@@ -13,7 +14,6 @@ export default function Posts(){
 	const maxLength = 200;
 	const navigate = useNavigate()
 	const [havePostsInDatabase, setHavePostsInDatabase] = useState(false);
-
 	function handleSeePostComments(postId){
 		navigate(`/post?q=${postId}`)
 	}
@@ -24,7 +24,7 @@ export default function Posts(){
 
 	useEffect(()=>{
 		setIsLoading(true)
-		const URL = 'http://localhost:8000/posts'
+		const URL = `${API_URL}/posts`
 		fetch(URL)
 		.then((res)=>{
 			if(res.status == 500){
@@ -69,11 +69,8 @@ export default function Posts(){
 								{ isExpanded ?  post.content : `${post.content.substring(0, maxLength)}...`}
 							</div>
 							{
-								post.anexo ?
-								<a className="anexo" href="#" target="_blank">{post.anexo}</a>:
-								<p></p>
+								post.anexo && <a className="anexo" href={post.anexo} target="_blank">{post.anexo}</a>
 							}
-							
 							<div id="post-more-options">
 								<button className="btn" onClick={toggleExpand}>{isExpanded ? 'Ver menos' : 'Ver mais'}</button>
 								<button className="btn ver-coments" onClick={()=>handleSeePostComments(post.id)}><FaMessage color="rgba(0, 0, 0, 0.5)"/> Comentários</button>
