@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/fisuniverse-users/static/css/main.b104b7f4.css",
+    "main.css": "/fisuniverse-users/static/css/main.2af2c831.css",
     "main.js": "/fisuniverse-users/static/js/main.c7edea67.js",
     "static/media/Poppins-Thin.ttf": "/fisuniverse-users/static/media/Poppins-Thin.c0e3721e5939730f7cf2.ttf",
     "static/media/Poppins-Light.ttf": "/fisuniverse-users/static/media/Poppins-Light.25b96349cf564e8ba0dc.ttf",
     "static/media/Poppins-Bold.ttf": "/fisuniverse-users/static/media/Poppins-Bold.300a4da54f1e6258b6f7.ttf",
     "static/media/back6.jpeg": "/fisuniverse-users/static/media/back6.179f963e6a286d3e72c8.jpeg",
     "index.html": "/fisuniverse-users/index.html",
-    "main.b104b7f4.css.map": "/fisuniverse-users/static/css/main.b104b7f4.css.map",
+    "main.2af2c831.css.map": "/fisuniverse-users/static/css/main.2af2c831.css.map",
     "main.c7edea67.js.map": "/fisuniverse-users/static/js/main.c7edea67.js.map"
   },
   "entrypoints": [
-    "static/css/main.b104b7f4.css",
+    "static/css/main.2af2c831.css",
     "static/js/main.c7edea67.js"
   ]
 }
