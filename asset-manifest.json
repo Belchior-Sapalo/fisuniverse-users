@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/fisuniverse-users/static/css/main.d56bda8e.css",
-    "main.js": "/fisuniverse-users/static/js/main.c7edea67.js",
+    "main.css": "/fisuniverse-users/static/css/main.1509f310.css",
+    "main.js": "/fisuniverse-users/static/js/main.7294ad05.js",
     "static/media/Poppins-Thin.ttf": "/fisuniverse-users/static/media/Poppins-Thin.c0e3721e5939730f7cf2.ttf",
     "static/media/Poppins-Light.ttf": "/fisuniverse-users/static/media/Poppins-Light.25b96349cf564e8ba0dc.ttf",
     "static/media/Poppins-Bold.ttf": "/fisuniverse-users/static/media/Poppins-Bold.300a4da54f1e6258b6f7.ttf",
     "static/media/back6.jpeg": "/fisuniverse-users/static/media/back6.179f963e6a286d3e72c8.jpeg",
     "index.html": "/fisuniverse-users/index.html",
-    "main.d56bda8e.css.map": "/fisuniverse-users/static/css/main.d56bda8e.css.map",
-    "main.c7edea67.js.map": "/fisuniverse-users/static/js/main.c7edea67.js.map"
+    "main.1509f310.css.map": "/fisuniverse-users/static/css/main.1509f310.css.map",
+    "main.7294ad05.js.map": "/fisuniverse-users/static/js/main.7294ad05.js.map"
   },
   "entrypoints": [
-    "static/css/main.d56bda8e.css",
-    "static/js/main.c7edea67.js"
+    "static/css/main.1509f310.css",
+    "static/js/main.7294ad05.js"
   ]
 }
