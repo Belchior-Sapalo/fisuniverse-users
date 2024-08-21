@@ -7,6 +7,7 @@ import { formatDistanceToNow } from "date-fns"
 import { ptBR } from 'date-fns/locale';
 import Logo from '../../components/logo/logo'
 import { API_URL } from '../../components/globalVarables/variaveis'
+import ScrollTop from '../../components/scrollTop/scrollTop'
 
 export default function Post(){
     const [searchParams] = useSearchParams()
@@ -109,6 +110,7 @@ export default function Post(){
         //     </div>
         // </div>
         <div className="post container">
+            <ScrollTop/>
             <Header/>
             {
                 isLoadingPost ? <h5>Aguarde...</h5> :
@@ -136,10 +138,16 @@ export default function Post(){
                             return(
                                 <div className="coment">
                                     <div className='coment-header'>
-                                        <p className="coment-email">{comment.email}</p>
+                                        <p className="coment-email">{comment.autor}</p>
                                         <p className="coment-data">{formatarData(comment.createdAt)}</p>
                                     </div>
                                     <p className="coment-content">{comment.content}</p>
+                                    { comment.response && <div className="response-container">
+                                        <div>
+                                            <p className="admin">@Administardor</p>
+                                            <p>{comment.response}</p>
+                                        </div>
+                                    </div>}
                                 </div>
                                 )
                         }): isLoadingComments ? <p>Buscando comentários...</p> : <p>Sem comentários</p>

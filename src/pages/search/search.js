@@ -6,6 +6,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { API_URL } from "../../components/globalVarables/variaveis";
 import ComentForm from "../../components/postComentForm/comentForm";
 import '../search/search.css';
+import ScrollTop from "../../components/scrollTop/scrollTop";
 
 export default function Search(){
     const [searchParams] = useSearchParams()
@@ -54,6 +55,7 @@ export default function Search(){
         <section id="search-section">
             {/* <h1 className="result-text text-center">Resultados para: {query}</h1> */}
             <div id="results-container" className="container">
+            <ScrollTop/>
 			{ 
 
                 foundedSomeResult ? results.map(result=>{
@@ -81,7 +83,7 @@ export default function Search(){
                             </div>
                         </div>
                     )
-                }): isLoading ? <h4 className="p-4 text-center">Buscando resultados...</h4> : <h4 className="text-p-4 text-center">{results.msg}</h4>
+                }): isLoading ? <h4 className="p-4 text-center">Buscando resultados...</h4> : <h4 className="p-4 text-center">Nenhum resultado encontrado</h4>
 			}
 		</div>
         </section>

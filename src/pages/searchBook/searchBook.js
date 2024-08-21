@@ -5,6 +5,7 @@ import "../searchBook/searchBook.css";
 import { API_URL } from "../../components/globalVarables/variaveis";
 
 import React from 'react';
+import ScrollTop from "../../components/scrollTop/scrollTop";
 
 export default function SearchBook() {
     const [searchParams] = useSearchParams()
@@ -46,6 +47,7 @@ export default function SearchBook() {
             </div>
             <h1 className="result-text text-center">Resultados para: {query}</h1>
         </div> */}
+        <ScrollTop/>
 
         <div id="posts-container">
             {
@@ -53,7 +55,7 @@ export default function SearchBook() {
                     return(
                         <Card title={book.title} autor={book.autor} editora={book.editora} ano={book.ano} id={book.id} description={book.description}/>
                     )
-                }) : isLoading ?  <h4 className="p-4">Buscando resultados...</h4> : <h4 className="p-4">Nenhum resultado encontrado</h4>
+                }) : isLoading ?  <h4 className="p-4 text-center">Buscando resultados...</h4> : <h4 className="p-4 text-center">Nenhum resultado encontrado</h4>
             }
 		</div>
     </section>

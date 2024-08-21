@@ -1,3 +1,4 @@
+import ScrollTop from '../../components/scrollTop/scrollTop'
 import '../errorPage/errorPage.css'
 
 import React from 'react'
@@ -6,6 +7,7 @@ export default function ErrorPage() {
   
   return (
     <section id='error-page-section' className='container'>
+      <ScrollTop/>
       <div id='error-container'>
         <h4 id='error-code'>500</h4>
         <h5 id='error-info'>Erro no servidor</h5>

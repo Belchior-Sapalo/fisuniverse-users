@@ -142,6 +142,7 @@
 @media (max-width: 575.98px){
 	#nav-bar{
 		height: 80px;
+		padding: 0 35px;
 	}
 	#nav-bar .logo-search-container{
 		flex-direction: column;

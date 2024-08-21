@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
-import Home from './pages/home/home';
-import Anexos from './pages/anexos/anexos';
-import Search from './pages/search/search';
 import './index.css';
-import OnePost from './pages/post/OnePost';
-import SearchBook from './pages/searchBook/searchBook';
+import Anexos from './pages/anexos/anexos';
 import ErrorPage from './pages/errorPage/errorPage';
+import Home from './pages/home/home';
+import OnePost from './pages/post/OnePost';
+import Search from './pages/search/search';
+import SearchBook from './pages/searchBook/searchBook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<App/>}>
           <Route path="/" element={<Home/>}/>
@@ -24,6 +24,6 @@ root.render(
           <Route path="/error" element={<ErrorPage/>}/>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );

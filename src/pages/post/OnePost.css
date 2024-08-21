@@ -3,6 +3,7 @@
     margin-bottom: 20px;
     border: 1px solid rgba(0, 0, 0, 0.026);
     border-radius: 8px;
+    min-height: 100vh;
 }
 
 .post #header{
@@ -96,6 +97,20 @@
     justify-content: center;
     align-items: center;
     padding: 4px;
+}
+
+.response-container{
+    padding-left: 18px;
+    margin-top: 10px;
+}
+
+
+.response-container p{
+    margin: 0;
+}
+
+.response-container .admin{
+
 }
 
 @media (max-width: 718px){

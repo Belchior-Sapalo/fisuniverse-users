@@ -72,7 +72,7 @@ export default function Posts(){
 								post.anexo && <a className="anexo" href={post.anexo} target="_blank" rel="noreferrer">{post.anexo}</a>
 							}
 							<div id="post-more-options">
-								<button className="btn" onClick={toggleExpand}>{isExpanded ? 'Ver menos' : 'Ver mais'}</button>
+								<button className="btn p-0 pt-2 pb-2" onClick={toggleExpand}>{isExpanded ? 'Ver menos' : 'Ver mais'}</button>
 								<button className="btn ver-coments" onClick={()=>handleSeePostComments(post.id)}><FaMessage color="rgba(0, 0, 0, 0.5)"/> Comentários</button>
 							</div>
 						</div>
